@@ -9,6 +9,10 @@ class BookingForm extends React.Component {
         super(props);
     }
 
+    customMenu() {
+
+    }
+
     render() {
         return(
             <Form inline>
@@ -28,10 +32,16 @@ class BookingForm extends React.Component {
                     id='arrival'
                     placeholder='Arr'    
                 />
-                <Form.Label htmlFor='depDate' srOnl></Form.Label>
+                <Form.Label htmlFor='depDate' srOnly></Form.Label>
                 <Form.Control className='mb-2 mr-sm-2' type='date' id='depDate' name='depDate' placeholder='Departure Date' />
-                <Form.Label htmlFor='retDate' srOnl></Form.Label>
+                <Form.Label htmlFor='retDate' srOnly></Form.Label>
                 <Form.Control className='mb-2 mr-sm-2' type='date' id='retDate' name='retDate' placeholder='Return Date' />
+                <Form.Label htmlFor='passenger' srOnly></Form.Label>
+                <Form.Control className='mb-2 mr-sm-2' as='select'>
+                    <option>Adults </option>
+                    <option>Children under 12 years</option>
+                    <option>Infents under 2 years</option>
+                </Form.Control>
                 <Button variant='light' className='mb-2 mr-sm-2'>Search</Button>
             </Form>
         );

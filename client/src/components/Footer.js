@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import logo from '../img/Logo.png';
+
 const FooterStyle = styled.div`
     display: flex;
     flex-direction: column;
@@ -10,6 +12,10 @@ const FooterStyle = styled.div`
     width: 100%;
     z-index: 5;
     background-color: #5e79a8;
+
+    img {
+        width: 300px;
+    }
 `;
 
 const FooterLinks = styled.div`
@@ -33,7 +39,7 @@ class Footer extends React.Component {
         return(
             <div>
                 <FooterStyle>
-                    <h1>LOGO HERE</h1>
+                    <img src={logo} />
                 </FooterStyle>
                 <FooterLinks>
                     <p>Links</p>

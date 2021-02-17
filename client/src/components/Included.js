@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Parallax } from 'react-scroll-parallax';
 
-import includedImg from '../img/cirrus4.jpg';
+import includedImg from '../img/includedImg.jpg';
 
 const IncludedStyling = styled.section`
     display: flex;
@@ -35,7 +35,7 @@ const ScrollStyle2 = styled.div`
     height: 100vh;
     width: 100vw;
     z-index: -1;
-    position: absolute;
+    position: absolute;    
     
     img {
         height: 100vh;

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Parallax } from 'react-scroll-parallax';
 
-import heroImg from '../img/hero_cirrus.jpg';
+import heroImg from '../img/heroImg.jpg';
 import BookingForm from './Form.js';
 
 const HeroStyling = styled.section`

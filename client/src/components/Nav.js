@@ -2,6 +2,8 @@ import React from 'react';
 import { Link, animateScroll as scroll } from 'react-scroll';
 import styled from 'styled-components';
 
+import logo from '../img/Logo.png';
+
 const NavContainer = styled.div`
   position: fixed;
   width: 100%;
@@ -10,23 +12,35 @@ const NavContainer = styled.div`
   transition: top 1s;
   transition: background-color 1s;
   padding: 10px;
+  padding-top: 0;
+  padding-bottom: 0;
 `;
 
 const LogoContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  margin: 0;
+
+  img {
+  }
+`;
+
+const LogoStyle = styled.img`
+  width: 120px;
 `;
 
 const LinksContainer = styled.section`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  align-items: center;
 
   ol {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    padding-top: 10px;
   }
   ul {
     margin-left: 10px;
@@ -79,10 +93,12 @@ class Nav extends React.Component {
         ) {
           document.getElementById('nav').style.top = '0';
           document.getElementById('nav').style.backgroundColor = '';
+          document.getElementById('logoStyling').style.width = '120px'
           
         } else {
           document.getElementById('nav').style.top = '-0.5rem';
-          document.getElementById('nav').style.backgroundColor = 'black'      
+          document.getElementById('nav').style.backgroundColor = 'black' 
+          document.getElementById('logoStyling').style.width = '100px'                
         }
         prevPos = currentPos;
       }
@@ -93,7 +109,7 @@ class Nav extends React.Component {
     return(
       <NavContainer id='nav'>
         <LogoContainer>
-          <p>LOGO HERE</p>
+          <LogoStyle src={logo} id='logoStyling' />
         </LogoContainer>
         <LinksContainer>
           <ol>
