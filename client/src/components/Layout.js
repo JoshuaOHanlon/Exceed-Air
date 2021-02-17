@@ -3,7 +3,9 @@ import { render } from 'react-dom';
 import styled from 'styled-components';
 
 import Hero from './Hero.js';
-import Booking from './Booking.js';
+import Desc from './Description.js';
+import WhatsIncluded from './Included.js';
+import Footer from './Footer.js';
 
 const LayoutStyle = styled.div`
 
@@ -18,7 +20,9 @@ class Layout extends React.Component {
     return(
       <LayoutStyle>
         <Hero isLoaded={this.props.animate} />
-        <Booking />
+        <Desc />
+        <WhatsIncluded />
+        <Footer />
       </LayoutStyle>
     );
   }

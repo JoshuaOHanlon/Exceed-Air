@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Parallax } from 'react-scroll-parallax';
 
 import heroImg from '../img/hero_cirrus.jpg';
+import BookingForm from './Form.js';
 
 const HeroStyling = styled.section`
   display: flex;
@@ -11,12 +12,20 @@ const HeroStyling = styled.section`
   justify-content: center;
   height: 100vh;
   width: 100%;
+  z-index: 5;
 
   .container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
+    color: white;
+    font-size: 15pt;
+
+    h1 {
+      font-weight: 200;
+      font-size: 60pt;
+    }
   }
 
   .fade-in-first {
@@ -28,83 +37,47 @@ const HeroStyling = styled.section`
       opacity: 0;
     }
   }
-
-  h1 {
-    margin: 0 0 5px 4px;
-    color: var(--green);
-    font-size: clamp(14px, 5vw, 16px);
-
-    @media (max-width: 480px) {
-      margin: 0 0 20px 2px;
-    }
-  }
-
-  h3 {
-    margin-top: 10px;
-    color: grey;
-    line-height: 0.9;
-  }
-
-  p {
-    margin: 20px 0 0;
-    max-width: 500px;
-  }
 `;
 
-const EmailStyling = styled.div`
-  margin-top: 50px;
-  border: 1px solid var(--green);
-  border-radius: 3px;
-  height: 50px;
-  width: 140px;
-  transition: 0.3s;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  &:hover {
-    background-color: rgba(0, 254, 222, 0.3);
-  }
-  a {
-    color: var(--green);
-    text-decoration: none;
+const ScrollStyle = styled.div`
+  height: 100vh;
+  width: 100vw;
+  z-index: -1;
+  position: absolute;
+
+  img {
+    height: 100vh;
+    width: 100%;
   }
 `;
 
 class Hero extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
-    this.first = <h1 className={
+    this.first = <p className={
                   this.props.isLoaded ? 'fade-in-first' : ''
-                }>Welcome to</h1>;
-    this.second = <h2>Exceed Air</h2>;
-    this.third = <h3>The premier air-taxi service.</h3>;
-    this.desc = (
-      <p>
-        blahahablahaha
-      </p>
-    );
-    this.contactBtn = (
-      <EmailStyling>
-        <a >
-          TBD
-        </a>
-      </EmailStyling>
-    );
-    this.renderArr = [this.first, this.second, this.third, this.desc, this.contactBtn];
+                }>PERSONALIZED AIR TRAVEL</p>;
+    this.second = <h1>Affordable. Convenient.
+    Flexible.</h1>;
+ 
+    this.renderArr = [this.first, this.second];
   }
 
   render() {
     return (
       <HeroStyling>
-        <Parallax clasName='custom-class' y={[-20, 20]} tagOuter='figure'>
-          <img src={heroImg} />
-        </Parallax>
+        <ScrollStyle>
+          <Parallax y={[-60, 60]} className='scrollFilter'>
+            <img src={heroImg} />
+          </Parallax>       
+        </ScrollStyle>
         <div className='container'>
           {this.renderArr.map((item, i) => (
             <div key={i} >{item}</div>
           ))}
-        </div>
+          <BookingForm />
+        </div>      
       </HeroStyling>
     )
   }

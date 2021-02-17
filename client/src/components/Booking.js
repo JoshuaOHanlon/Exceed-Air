@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Button, DatePicker } from 'antd';
-
-const { RangePicker } = DatePicker;
 
 const BookingStyle = styled.div`
   display: flex;
@@ -11,6 +8,7 @@ const BookingStyle = styled.div`
   justify-content: center;
   height: 100vh;
   width: 100%;
+  background-color: white;
 
   .bookingContainer {
     display: flex;
@@ -53,7 +51,7 @@ class Booking extends React.Component {
                 <input type='text' className='airportInput' name='dest' placeholder='Destination' data-label='destination' />
               </div>
             </FormStyling>
-            <RangePicker showTime />
+            
           </form>
         </div>
       </BookingStyle>

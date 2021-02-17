@@ -4,10 +4,12 @@ import styled from 'styled-components';
 
 const NavContainer = styled.div`
   position: fixed;
-  width: 95%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  transition: top 0.5s;
+  transition: top 1s;
+  transition: background-color 1s;
+  padding: 10px;
 `;
 
 const LogoContainer = styled.div`
@@ -26,42 +28,38 @@ const LinksContainer = styled.section`
     flex-direction: row;
     flex-wrap: wrap;
   }
-  li {
-    margin-left: 40px;
-    color: var(--green);
-  }
-  span {
-    color: grey;
-  }
-  button {
-    margin-left: 40px;
-    margin-top: 5px;
-    color: var(--green);
-    background-color: var(--slate);
-    border: 1px solid;
-    border-color: var(--green);
-    border-radius: 5px;
-    height: 40px;
-    width: 80px;
+  ul {
+    margin-left: 10px;
+    color: white;
+    font-size: 10pt;
+    font-weight: 200;
   }
 `;
 
 const linksArr = [
   {
-    name: 'About',
-    url: 'about'
+    name: 'OVERVIEW',
+    url: 'overview'
   },
   {
-    name: 'Generate',
-    url: 'generate'
+    name: 'FEATURES',
+    url: 'features'
   },
   {
-    name: 'Names',
-    url: 'names'
+    name: 'PRICING',
+    url: 'pricing'
   },
   {
-    name: 'Settings',
-    url: 'settings'
+    name: 'TESTIMONIALS',
+    url: 'testimonials'
+  },
+  {
+    name: 'FAQS',
+    url: 'faqs'
+  },
+  {
+    name: 'SIGN UP',
+    url: 'signup'
   }
 ]
 
@@ -80,8 +78,11 @@ class Nav extends React.Component {
             || (prevPos <= 0 && currentPos <= 0)
         ) {
           document.getElementById('nav').style.top = '0';
+          document.getElementById('nav').style.backgroundColor = '';
+          
         } else {
-          document.getElementById('nav').style.top = '-5.0rem';
+          document.getElementById('nav').style.top = '-0.5rem';
+          document.getElementById('nav').style.backgroundColor = 'black'      
         }
         prevPos = currentPos;
       }
@@ -97,12 +98,11 @@ class Nav extends React.Component {
         <LinksContainer>
           <ol>
             {linksArr.map(({ url, name }, i) => (
-              <li key={i} >
-                <Link to={url} smooth={true} duration={500}><span>{name}</span></Link>
-              </li>
+              <ul key={i} >
+                <Link to={url} smooth={true} duration={500}>{name}</Link>
+              </ul>
             ))}
-          </ol>
-          <button type='button'>TBD</button>
+          </ol>        
         </LinksContainer>
       </NavContainer>
     );

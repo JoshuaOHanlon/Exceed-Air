@@ -6,7 +6,6 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-import './App.css';
 
 import GlobalStyle from './styles/GlobalStyle.js';
 import Nav from './components/Nav.js';
