@@ -15,8 +15,18 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      animate: true
+      animate: true,
+      airports: []
     }
+
+    this.getAirports = this.getAirports.bind(this);
+  }
+
+  getAirports(airport) {
+    axios.get(`http://localhost:8000/airports/db/${airport}`)
+      .then((res) => {
+        this.setState({ airports: res });
+      });
   }
 
   render() {
@@ -25,7 +35,7 @@ class App extends React.Component {
         <div className='App'>
           <GlobalStyle />
           <Nav />
-          <Layout animate={this.state.animate} />
+          <Layout animate={this.state.animate} getAirports={this.getAirports} />
         </div>
       </Router>
     );

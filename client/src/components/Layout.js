@@ -19,7 +19,7 @@ class Layout extends React.Component {
   render() {
     return(
       <LayoutStyle>
-        <Hero isLoaded={this.props.animate} />
+        <Hero isLoaded={this.props.animate} getAirports={this.props.getAirports} />
         <Desc />
         <WhatsIncluded />
         <Footer />
